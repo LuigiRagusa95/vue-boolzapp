@@ -336,7 +336,7 @@ body {
 }
 
 .container .window .sidaber .sidebar-content .users > * {
-  margin-bottom: 3.5px;
+  margin-bottom: 0.5rem;
 }
 
 .container .window .sidaber .sidebar-content .users .user {

@@ -54,14 +54,14 @@
 					</header>
 					<div class="sidebar-content">
 						<ul class="users">
-							<li class="user">
+							<li class="user" v-for="user in contacts">
 								<div class="user-image-box">
 									<div class="user-image">
-										<img src="./img/avatar_1.jpg" alt="user-image" />
+										<img :src="`./img/avatar${user.avatar}.jpg`" alt="user-image" />
 									</div>
 								</div>
 								<div class="user-labels-box">
-									<div class="user-name">Michele</div>
+									<div class="user-name">{{user.name}}</div>
 								</div>
 							</li>
 						</ul>
