@@ -229,7 +229,7 @@ body {
 .container .window .sidaber .sidebar-header-banner .banner-actions > .banner-title {
   display: block;
   overflow: hidden;
-  color: #263238;
+  color: #303030cc;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
@@ -547,4 +547,84 @@ body {
 
 .container .window .main .main-header .main-header-actions .icon-button:hover {
   color: #51585c;
+}
+
+.container .window .main .main-content {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  background: url(../img/mine.jpg);
+}
+
+.container .window .main .main-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #f0f0f0;
+}
+
+.container .window .main .main-footer .input {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.25rem 0.5rem;
+}
+
+.container .window .main .main-footer .input button {
+  width: 2rem;
+  height: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  cursor: pointer;
+  color: #51585c;
+  font-size: 1.125rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: transparent;
+}
+
+.container .window .main .main-footer .input input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: #263238;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  line-height: 2rem;
+  padding: 0.25rem 1rem;
+  border-radius: 99999px;
+  letter-spacing: 0.02rem;
+}
+
+.container .window .main .main-footer .input input::-webkit-input-placeholder {
+  color: #303030cc;
+}
+
+.container .window .main .main-footer .input input:-ms-input-placeholder {
+  color: #303030cc;
+}
+
+.container .window .main .main-footer .input input::-ms-input-placeholder {
+  color: #303030cc;
+}
+
+.container .window .main .main-footer .input input::placeholder {
+  color: #303030cc;
+}
+
+.container .window .main .main-footer .input > * {
+  margin: 0.5rem;
 }
