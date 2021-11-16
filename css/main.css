@@ -581,45 +581,43 @@ body {
           flex-flow: column;
   padding: 0 2rem;
   margin: 0.125rem 0;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
 }
 
 .container .window .main .main-content .message-list .message .message-bubble {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  font-size: 0;
   padding: 0.5rem;
   color: #263238;
+  display: inline-block;
   word-wrap: break-word;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  display: inline-block;
   word-break: break-all;
   border-radius: 0.5rem;
+  min-width: -webkit-min-content;
+  min-width: -moz-min-content;
+  min-width: min-content;
   letter-spacing: 0.01rem;
   background-color: #ffffff;
-  max-width: calc((100% / 2) - 2rem);
+  max-width: calc((100% / 2) + 2rem);
   -webkit-box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
           box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
 }
 
 .container .window .main .main-content .message-list .message .message-bubble .message-bubble-text {
   font-size: 1rem;
-  min-width: 4rem;
   line-height: 1.5rem;
 }
 
 .container .window .main .main-content .message-list .message .message-bubble .message-bubble-info {
-  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-left: 2rem;
+  min-width: 10rem;
   line-height: 1rem;
-  padding: 0 2rem 0 0;
   color: #303030cc;
   font-size: 0.6875rem;
   margin-top: -0.125rem;
