@@ -176,10 +176,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 0.5rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 0.5rem 1rem;
   background: #c9eeff;
 }
 
@@ -237,4 +237,73 @@ body {
   max-width: -moz-fit-content;
   max-width: fit-content;
   text-overflow: ellipsis;
+}
+
+.container .window .sidaber .sidebar-header-fields {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.5rem 1rem;
+  background-color: #f6f6f6;
+}
+
+.container .window .sidaber .sidebar-header-fields .input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 0.25rem;
+  border-radius: 9999px;
+  background-color: #ffffff;
+}
+
+.container .window .sidaber .sidebar-header-fields .input > .input-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #d9d9d9;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container .window .sidaber .sidebar-header-fields .input > input {
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #4a4a4a;
+  line-height: 1.5rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.02rem;
+  background-color: transparent;
+}
+
+.container .window .sidaber .sidebar-header-fields .input > input::-webkit-input-placeholder {
+  color: #51585c;
+}
+
+.container .window .sidaber .sidebar-header-fields .input > input:-ms-input-placeholder {
+  color: #51585c;
+}
+
+.container .window .sidaber .sidebar-header-fields .input > input::-ms-input-placeholder {
+  color: #51585c;
+}
+
+.container .window .sidaber .sidebar-header-fields .input > input::placeholder {
+  color: #51585c;
+}
+
+.container .window .sidaber .sidebar-header-fields .input > * {
+  margin: 0.25rem;
 }
