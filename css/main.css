@@ -168,3 +168,73 @@ body {
 .container .window .sidaber .sidebar-header-info .sidebar-actions > * {
   margin-right: 0.25rem;
 }
+
+.container .window .sidaber .sidebar-header-banner {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #c9eeff;
+}
+
+.container .window .sidaber .sidebar-header-banner .banner-image {
+  width: 3rem;
+  height: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  color: #c9eeff;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 1rem;
+  border-radius: 9999px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #ffffff;
+}
+
+.container .window .sidaber .sidebar-header-banner .banner-actions {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  min-width: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.container .window .sidaber .sidebar-header-banner .banner-actions > .banner-title {
+  display: block;
+  overflow: hidden;
+  color: #51585c;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.container .window .sidaber .sidebar-header-banner .banner-actions > .banner-link {
+  display: block;
+  overflow: hidden;
+  color: #9ab4c0;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  text-overflow: ellipsis;
+}
