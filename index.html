@@ -85,7 +85,7 @@
 						</div>
 					</header>
 					<main class="main-content">
-						<div class="message-list">
+						<div class="message-list" ref="messageList">
 							<li class="message" v-for="(message, index) in selectedUser.messages" :class="{send:message.status === 'sent'}">
 								<div class="message-bubble">
 									<div class="message-bubble-text">
@@ -104,7 +104,7 @@
 							<button>
 								<i class="far fa-smile"></i>
 							</button>
-							<input type="text" id="input-messagfe" placeholder="Scrivi un messaggio" v-model="message" @keyup.enter="sendMessage" />
+							<input type="text" id="input-message" placeholder="Scrivi un messaggio" v-model="message" @keyup.enter="sendMessage" ref="inputMessage" />
 							<button>
 								<i class="fas fa-microphone"></i>
 							</button>

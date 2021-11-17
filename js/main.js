@@ -109,6 +109,16 @@ new Vue({
 			const today = new dayjs(string, "DD-MM-YYYY HH:mm:ss");
 			return today.format("HH:mm");
 		},
+		botReply(timeForReply, arrayOfMessages) {
+			setTimeout(() => {
+				arrayOfMessages.push({
+					date: dayjs().format("DD-MM-YYYY HH:mm:ss"),
+					text: this.botMessage(),
+					status: "received",
+				});
+			}, timeForReply);
+			this.autoScollToBottom(1001);
+		},
 		botMessage() {
 			const messages = ["Sono un Bot", "Ok", "Ciao", "Grazie", "Bye"];
 			return messages[Math.floor(Math.random() * messages.length)];
@@ -121,15 +131,13 @@ new Vue({
 				status: "sent",
 			});
 			this.message = "";
-			if (this.isBotTalk) {
-				setTimeout(() => {
-					messages.push({
-						date: dayjs().format("DD-MM-YYYY HH:mm:ss"),
-						text: this.botMessage(),
-						status: "received",
-					});
-				}, 1000);
-			}
+			this.autoScollToBottom(0);
+			if (this.isBotTalk) this.botReply(1000, messages);
+		},
+		autoScollToBottom(timer) {
+			setTimeout(() => {
+				this.$refs.messageList.scrollTop = this.$refs.messageList.scrollHeight - this.$refs.messageList.clientHeight;
+			}, timer);
 		},
 	},
 });
