@@ -91,6 +91,7 @@ new Vue({
 			},
 		],
 		message: "",
+		isBotTalk: true,
 		userActiveIndex: 0,
 		selectedUser: null,
 	},
@@ -108,6 +109,10 @@ new Vue({
 			const today = new dayjs(string, "DD-MM-YYYY HH:mm:ss");
 			return today.format("HH:mm");
 		},
+		botMessage() {
+			const messages = ["Sono un Bot", "Ok", "Ciao", "Grazie", "Bye"];
+			return messages[Math.floor(Math.random() * messages.length)];
+		},
 		sendMessage() {
 			const { messages } = this.selectedUser;
 			messages.push({
@@ -116,7 +121,15 @@ new Vue({
 				status: "sent",
 			});
 			this.message = "";
-			console.log(messages);
+			if (this.isBotTalk) {
+				setTimeout(() => {
+					messages.push({
+						date: dayjs().format("DD-MM-YYYY HH:mm:ss"),
+						text: this.botMessage(),
+						status: "received",
+					});
+				}, 1000);
+			}
 		},
 	},
 });

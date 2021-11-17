@@ -595,7 +595,6 @@ body {
   display: inline-block;
   word-wrap: break-word;
   display: inline-block;
-  word-break: break-all;
   border-radius: 0.5rem;
   min-width: -webkit-min-content;
   min-width: -moz-min-content;
