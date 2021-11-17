@@ -109,7 +109,14 @@ new Vue({
 			return today.format("HH:mm");
 		},
 		sendMessage() {
-			console.log(this.message);
+			const { messages } = this.selectedUser;
+			messages.push({
+				date: dayjs().format("DD-MM-YYYY HH:mm:ss"),
+				text: this.message,
+				status: "sent",
+			});
+			this.message = "";
+			console.log(messages);
 		},
 	},
 });
