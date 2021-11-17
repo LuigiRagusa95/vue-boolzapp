@@ -86,22 +86,14 @@
 					</header>
 					<main class="main-content">
 						<div class="message-list">
-							<li class="message">
+							<li class="message" v-for="(message, index) in selectedUser.messages" :class="{send:message.status === 'sent'}">
 								<div class="message-bubble">
 									<div class="message-bubble-text">
-										<p>Messaggio Ricevuto !</p>
+										<p>{{message.text}}</p>
 									</div>
 									<div class="message-bubble-info">
-										<span>16:00</span>
+										<span>{{message.date}}</span>
 									</div>
-								</div>
-							</li>
-							<li class="message send">
-								<div class="message-bubble">
-									<div class="message-bubble-text">
-										<p>Messaggio Inviato</p>
-									</div>
-									<div class="message-bubble-info">16:00</div>
 								</div>
 							</li>
 						</div>
