@@ -101,5 +101,9 @@ new Vue({
 			this.userActiveIndex = index;
 			this.selectedUser = this.contacts[this.userActiveIndex];
 		},
+		formatDate(string) {
+			const today = new dayjs(string);
+			return today.format("HH:mm");
+		},
 	},
 });
