@@ -22,9 +22,9 @@
 						<div class="sidebar-header-info">
 							<div class="user-profile">
 								<div class="user-image">
-									<img src="./img/avatar_io.jpg" alt="user-profile" />
+									<img :src="`./img/avatar${user.avatar}.jpg`" alt="user-profile" />
 								</div>
-								<div class="user-name">Nome Utente</div>
+								<div class="user-name">{{user.name}}</div>
 							</div>
 							<div class="sidebar-actions">
 								<div class="icon-button"><i class="fas fa-circle-notch"></i></div>
@@ -54,7 +54,7 @@
 					</header>
 					<div class="sidebar-content">
 						<ul class="users">
-							<li class="user" v-for="user in contacts">
+							<li class="user" v-for="(user,index) in contacts" :class="{userSelected: index===userActiveIndex}" @click="userSelect(index)">
 								<div class="user-image-box">
 									<div class="user-image">
 										<img :src="`./img/avatar${user.avatar}.jpg`" alt="user-image" />
@@ -71,10 +71,10 @@
 					<header class="main-header">
 						<div class="active-user">
 							<div class="active-user-image">
-								<img src="./img/avatar_1.jpg" alt="user-image" />
+								<img :src="`./img/avatar${selectedUser.avatar}.jpg`" alt="user-image" />
 							</div>
 							<div class="active-user-info">
-								<div class="active-user-name">Michele</div>
+								<div class="active-user-name">{{selectedUser.name}}</div>
 								<div class="active-user-info">Ultimo accesso oggi alle 10.35</div>
 							</div>
 						</div>

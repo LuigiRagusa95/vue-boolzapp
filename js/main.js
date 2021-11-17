@@ -1,6 +1,10 @@
 new Vue({
 	el: "#app",
 	data: {
+		user: {
+			name: "Luigi",
+			avatar: "_io",
+		},
 		contacts: [
 			{
 				name: "Michele",
@@ -86,6 +90,16 @@ new Vue({
 				],
 			},
 		],
+		userActiveIndex: 0,
+		selectedUser: null,
 	},
-	methods: {},
+	created() {
+		this.userSelect(0);
+	},
+	methods: {
+		userSelect(index) {
+			this.userActiveIndex = index;
+			this.selectedUser = this.contacts[this.userActiveIndex];
+		},
+	},
 });
