@@ -90,20 +90,26 @@ new Vue({
 				],
 			},
 		],
+		message: "",
 		userActiveIndex: 0,
 		selectedUser: null,
 	},
 	created() {
 		this.userSelect(0);
+		dayjs.extend(dayjs_plugin_customParseFormat);
 	},
+	computed: {},
 	methods: {
 		userSelect(index) {
 			this.userActiveIndex = index;
 			this.selectedUser = this.contacts[this.userActiveIndex];
 		},
 		formatDate(string) {
-			const today = new dayjs(string);
+			const today = new dayjs(string, "DD-MM-YYYY HH:mm:ss");
 			return today.format("HH:mm");
+		},
+		sendMessage() {
+			console.log(this.message);
 		},
 	},
 });
