@@ -570,6 +570,9 @@ body {
       -ms-flex-flow: column;
           flex-flow: column;
   padding: 1rem 0;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+  scroll-behavior: smooth;
 }
 
 .container .window .main .main-content .message-list .message {
