@@ -570,6 +570,7 @@ body {
       -ms-flex-flow: column;
           flex-flow: column;
   padding: 1rem 0;
+  scrollbar-width: thin;
   -webkit-transition: 0.2s ease;
   transition: 0.2s ease;
   scroll-behavior: smooth;

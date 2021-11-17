@@ -97,6 +97,7 @@ new Vue({
 	},
 	created() {
 		this.userSelect(0);
+		this.autoScollToBottom(0);
 		dayjs.extend(dayjs_plugin_customParseFormat);
 	},
 	computed: {},
