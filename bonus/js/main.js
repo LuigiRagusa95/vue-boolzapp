@@ -180,8 +180,12 @@ new Vue({
 			this.actualTargetIndex = null;
 			this.isShowContextMenu = false;
 		},
+		showMessageInfo(index) {
+			const { messages } = this.selectedUser;
+			console.log(`${messages[index].status === "sent" ? "Sent in date:" : "Received in date:"}`, messages[index].date, `Message:`, messages[index].text);
+		},
 		selectOption(index, actualTargetIndex) {
-			index == 1 ? this.deleteMessage(actualTargetIndex) : this.showMessageInfo();
+			index == 1 ? this.deleteMessage(actualTargetIndex) : this.showMessageInfo(actualTargetIndex);
 		},
 	},
 });
