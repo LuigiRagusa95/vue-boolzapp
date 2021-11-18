@@ -94,6 +94,13 @@
 									<div class="message-bubble-info">
 										<span>{{formatDate(message.date)}}</span>
 									</div>
+									<div class="message-bubble-options">
+										<button class="open-menu" @click="toggleContextMenu"></button>
+										<ul class="option-menu" :class="{showMenu:isShowContextMenu}">
+											<li class="item-menu">Message info</li>
+											<li class="item-menu">Delete message</li>
+										</ul>
+									</div>
 								</div>
 							</li>
 						</div>

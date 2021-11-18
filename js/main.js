@@ -96,8 +96,6 @@ new Vue({
 		userActiveIndex: 0,
 		selectedUser: null,
 		searchUserString: "",
-		isShowButtonMenu: false,
-		isShowContextMenu: false,
 	},
 	created() {
 		this.userSelect(0);
@@ -151,17 +149,6 @@ new Vue({
 		/* TODO: creare la navigazione con le freccie e visualizzare sempre la pagina del primo contatto alla ricerca */
 		searchUser() {
 			this.contacts.filter((contact) => (contact.name.toLowerCase().match(this.searchUserString.toLowerCase()) ? (contact.visible = true) : (contact.visible = false)));
-		},
-		showButtonMenu() {
-			console.log(this.isShowButtonMenu);
-			this.isShowButtonMenu = true;
-		},
-		hideButtonMenu() {
-			this.isShowButtonMenu = false;
-			this.isShowContextMenu = false;
-		},
-		toggleContextMenu() {
-			this.isShowContextMenu = !this.isShowContextMenu;
 		},
 	},
 });
