@@ -202,5 +202,8 @@ new Vue({
 				contact["lastLog"] = this.lastTimeOnline;
 			});
 		},
+		getLastMessage(index) {
+			return { m: this.contacts[index].messages[this.contacts[index].messages.length - 1].text, d: this.contacts[index].messages[this.contacts[index].messages.length - 1].date.match(/(([0-2][0-9])(:)([0-5][0-9]))((;)([0-2][0-9])(:)([0-5][0-9]))*/g)[0] };
+		},
 	},
 });
