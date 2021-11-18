@@ -101,6 +101,8 @@ new Vue({
 		isShowContextMenu: false,
 	},
 	created() {
+		this.getLastTimeOnline();
+
 		this.userSelect(0);
 		this.autoScollToBottom(0);
 		dayjs.extend(dayjs_plugin_customParseFormat);
@@ -187,6 +189,14 @@ new Vue({
 		selectOption(index, actualTargetIndex) {
 			index == 1 ? this.deleteMessage(actualTargetIndex) : this.showMessageInfo(actualTargetIndex);
 			this.isShowContextMenu = false;
+		},
+		getLastTimeOnline() {
+			this.contacts.forEach((contact) => {
+				const { messages } = contact;
+				const r = messages.filter((message) => message.status === "received");
+				const time = r[r.length - 1].date.match(/(([0-2][0-9])(:)([0-5][0-9]))((;)([0-2][0-9])(:)([0-5][0-9]))*/g)[0];
+				contact["lastLog"] = time;
+			});
 		},
 	},
 });
