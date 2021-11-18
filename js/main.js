@@ -126,14 +126,18 @@ new Vue({
 		},
 		sendMessage() {
 			const { messages } = this.selectedUser;
-			messages.push({
-				date: dayjs().format("DD-MM-YYYY HH:mm:ss"),
-				text: this.message,
-				status: "sent",
-			});
-			this.message = "";
-			this.autoScollToBottom(0);
-			if (this.isBotTalk) this.botReply(1000, messages);
+			if (this.message.trim() !== "") {
+				messages.push({
+					date: dayjs().format("DD-MM-YYYY HH:mm:ss"),
+					text: this.message,
+					status: "sent",
+				});
+				this.message = "";
+				this.autoScollToBottom(0);
+				if (this.isBotTalk) this.botReply(1000, messages);
+			} else {
+				this.message = "";
+			}
 		},
 		autoScollToBottom(timer) {
 			setTimeout(() => {
