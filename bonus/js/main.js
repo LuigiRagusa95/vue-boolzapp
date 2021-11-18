@@ -154,7 +154,7 @@ new Vue({
 			this.contacts.filter((contact) => (contact.name.toLowerCase().match(this.searchUserString.toLowerCase()) ? (contact.visible = true) : (contact.visible = false)));
 		},
 		showButtonMenu(index) {
-			if (this.isShowContextMenu && this.actualTargetIndex !== index) return;
+			// if (this.isShowContextMenu && this.actualTargetIndex !== index) return;
 			this.actualTargetIndex = index;
 		},
 		hideButtonMenu(index) {
@@ -170,8 +170,18 @@ new Vue({
 		},
 		handleClick(evt) {
 			if (this.isShowContextMenu && this.currentBubbleActive !== null && !this.currentBubbleActive.contains(evt.target)) {
+				this.actualTargetIndex = null;
 				this.isShowContextMenu = false;
 			}
+		},
+		deleteMessage(index) {
+			const { messages } = this.selectedUser;
+			messages.splice(index, 1);
+			this.actualTargetIndex = null;
+			this.isShowContextMenu = false;
+		},
+		selectOption(index, actualTargetIndex) {
+			index == 1 ? this.deleteMessage(actualTargetIndex) : this.showMessageInfo();
 		},
 	},
 });

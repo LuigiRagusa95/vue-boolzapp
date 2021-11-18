@@ -97,8 +97,7 @@
 									<div class="message-bubble-options">
 										<button class="open-menu" @click="toggleContextMenu" v-show="actualTargetIndex === index"></button>
 										<ul class="option-menu" :class="{showMenu:isShowContextMenu && actualTargetIndex === index}">
-											<li class="item-menu">Message info</li>
-											<li class="item-menu">Delete message</li>
+											<li v-for="(opt, idx) in contextOptions" class="item-menu" @click="selectOption(idx, actualTargetIndex)">{{opt}}</li>
 										</ul>
 									</div>
 								</div>
