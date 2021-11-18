@@ -99,11 +99,12 @@ new Vue({
 		actualTargetIndex: 0,
 		currentBubbleActive: null,
 		isShowContextMenu: false,
+
+		lastTimeOnline: "",
 	},
 	created() {
-		this.getLastTimeOnline();
-
 		this.userSelect(0);
+		this.getLastTimeOnline();
 		this.autoScollToBottom(0);
 		dayjs.extend(dayjs_plugin_customParseFormat);
 	},
@@ -112,6 +113,8 @@ new Vue({
 		userSelect(index) {
 			this.userActiveIndex = index;
 			this.selectedUser = this.contacts[this.userActiveIndex];
+
+			this.getLastTimeOnline();
 		},
 		formatDate(string) {
 			const today = new dayjs(string, "DD-MM-YYYY HH:mm:ss");
@@ -129,6 +132,7 @@ new Vue({
 		},
 		botMessage() {
 			const messages = ["Sono un Bot", "Ok", "Ciao", "Grazie", "Bye"];
+			this.getLastTimeOnline();
 			return messages[Math.floor(Math.random() * messages.length)];
 		},
 		sendMessage() {
@@ -194,8 +198,8 @@ new Vue({
 			this.contacts.forEach((contact) => {
 				const { messages } = contact;
 				const r = messages.filter((message) => message.status === "received");
-				const time = r[r.length - 1].date.match(/(([0-2][0-9])(:)([0-5][0-9]))((;)([0-2][0-9])(:)([0-5][0-9]))*/g)[0];
-				contact["lastLog"] = time;
+				this.lastTimeOnline = r[r.length - 1].date.match(/(([0-2][0-9])(:)([0-5][0-9]))((;)([0-2][0-9])(:)([0-5][0-9]))*/g)[0];
+				contact["lastLog"] = this.lastTimeOnline;
 			});
 		},
 	},
