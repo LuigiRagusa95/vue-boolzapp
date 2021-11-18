@@ -48,13 +48,13 @@
 								<span class="input-icon">
 									<i class="fas fa-search"></i>
 								</span>
-								<input type="text" name="input-header" id="input-header" placeholder="Cerca o inizia una nuova chat" />
+								<input type="text" name="input-header" id="input-header" placeholder="Cerca o inizia una nuova chat" v-model="searchUserString" @keyup="searchUser" />
 							</label>
 						</div>
 					</header>
 					<div class="sidebar-content">
 						<ul class="users">
-							<li class="user" v-for="(user,index) in contacts" :class="{userSelected: index===userActiveIndex}" @click="userSelect(index)">
+							<li class="user" v-for="(user,index) in contacts" :class="{userSelected: index===userActiveIndex}" v-show="user.visible" @click="userSelect(index)">
 								<div class="user-image-box">
 									<div class="user-image">
 										<img :src="`./img/avatar${user.avatar}.jpg`" alt="user-image" />

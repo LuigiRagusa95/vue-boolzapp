@@ -94,6 +94,7 @@ new Vue({
 		isBotTalk: true,
 		userActiveIndex: 0,
 		selectedUser: null,
+		searchUserString: "",
 	},
 	created() {
 		this.userSelect(0);
@@ -143,6 +144,9 @@ new Vue({
 			setTimeout(() => {
 				this.$refs.messageList.scrollTop = this.$refs.messageList.scrollHeight - this.$refs.messageList.clientHeight;
 			}, timer);
+		},
+		searchUser() {
+			this.contacts.filter((contact) => (contact.name.toLowerCase().match(this.searchUserString.toLowerCase()) ? (contact.visible = true) : (contact.visible = false)));
 		},
 	},
 });
