@@ -612,12 +612,6 @@ body {
           box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
 }
 
-.container .window .main .main-content .message-list .message .message-bubble:hover .message-bubble-options {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 .container .window .main .main-content .message-list .message .message-bubble .message-bubble-text {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -639,6 +633,10 @@ body {
 
 .container .window .main .main-content .message-list .message .message-bubble .message-bubble-options {
   display: none;
+}
+
+.container .window .main .main-content .message-list .message .message-bubble .message-bubble-options.showButton {
+  display: block;
 }
 
 .container .window .main .main-content .message-list .message .message-bubble .message-bubble-options .open-menu {
