@@ -96,7 +96,8 @@ new Vue({
 		userActiveIndex: 0,
 		selectedUser: null,
 		searchUserString: "",
-		isShowButtonMenu: false,
+		actualTargetIndex: 0,
+		currentBubbleActive: null,
 		isShowContextMenu: false,
 	},
 	created() {
@@ -152,16 +153,25 @@ new Vue({
 		searchUser() {
 			this.contacts.filter((contact) => (contact.name.toLowerCase().match(this.searchUserString.toLowerCase()) ? (contact.visible = true) : (contact.visible = false)));
 		},
-		showButtonMenu() {
-			console.log(this.isShowButtonMenu);
-			this.isShowButtonMenu = true;
+		showButtonMenu(index) {
+			if (this.isShowContextMenu && this.actualTargetIndex !== index) return;
+			this.actualTargetIndex = index;
 		},
-		hideButtonMenu() {
-			this.isShowButtonMenu = false;
-			this.isShowContextMenu = false;
+		hideButtonMenu(index) {
+			if (this.isShowContextMenu) return;
+			else {
+				this.actualTargetIndex = null;
+				this.isShowContextMenu = false;
+			}
 		},
-		toggleContextMenu() {
+		toggleContextMenu(event) {
+			this.currentBubbleActive = event.target.parentElement;
 			this.isShowContextMenu = !this.isShowContextMenu;
+		},
+		handleClick(evt) {
+			if (this.isShowContextMenu && this.currentBubbleActive !== null && !this.currentBubbleActive.contains(evt.target)) {
+				this.isShowContextMenu = false;
+			}
 		},
 	},
 });

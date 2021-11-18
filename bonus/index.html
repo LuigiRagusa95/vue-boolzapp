@@ -15,7 +15,7 @@
 	</head>
 	<body>
 		<div id="app" class="container">
-			<div class="window">
+			<div class="window" @click="handleClick">
 				<nav class="sidaber">
 					<header class="sidebar-header">
 						<!-- sidebar-actions -->
@@ -87,7 +87,7 @@
 					<main class="main-content">
 						<div class="message-list" ref="messageList">
 							<li class="message" v-for="(message, index) in selectedUser.messages" :class="{send:message.status === 'sent'}">
-								<div class="message-bubble">
+								<div class="message-bubble" @mouseenter="showButtonMenu(index)" @mouseleave="hideButtonMenu(index)">
 									<div class="message-bubble-text">
 										<p>{{message.text}}</p>
 									</div>
@@ -95,8 +95,8 @@
 										<span>{{formatDate(message.date)}}</span>
 									</div>
 									<div class="message-bubble-options">
-										<button class="open-menu" @click="toggleContextMenu"></button>
-										<ul class="option-menu" :class="{showMenu:isShowContextMenu}">
+										<button class="open-menu" @click="toggleContextMenu" v-show="actualTargetIndex === index"></button>
+										<ul class="option-menu" :class="{showMenu:isShowContextMenu && actualTargetIndex === index}">
 											<li class="item-menu">Message info</li>
 											<li class="item-menu">Delete message</li>
 										</ul>
