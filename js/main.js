@@ -145,6 +145,7 @@ new Vue({
 				this.$refs.messageList.scrollTop = this.$refs.messageList.scrollHeight - this.$refs.messageList.clientHeight;
 			}, timer);
 		},
+		/* TODO: creare la navigazione con le freccie e visualizzare sempre la pagina del primo contatto alla ricerca */
 		searchUser() {
 			this.contacts.filter((contact) => (contact.name.toLowerCase().match(this.searchUserString.toLowerCase()) ? (contact.visible = true) : (contact.visible = false)));
 		},

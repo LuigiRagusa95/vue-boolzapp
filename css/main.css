@@ -596,6 +596,7 @@ body {
 .container .window .main .main-content .message-list .message .message-bubble {
   font-size: 0;
   color: #263238;
+  position: relative;
   display: inline-block;
   word-wrap: break-word;
   display: inline-block;
@@ -609,6 +610,12 @@ body {
   max-width: calc((100% / 2) + 2rem);
   -webkit-box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
           box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+}
+
+.container .window .main .main-content .message-list .message .message-bubble:hover .message-bubble-options > .indicator {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .container .window .main .main-content .message-list .message .message-bubble .message-bubble-text {
@@ -630,6 +637,44 @@ body {
           justify-content: flex-end;
 }
 
+.container .window .main .main-content .message-list .message .message-bubble .message-bubble-options {
+  top: 4px;
+  right: 8px;
+  z-index: 10;
+  position: absolute;
+}
+
+.container .window .main .main-content .message-list .message .message-bubble .message-bubble-options > .indicator {
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  opacity: 0.9;
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 99999px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: right 0.2s ease;
+  transition: right 0.2s ease;
+  background-color: #ffffff;
+  -webkit-animation: slide-right 0.1s ease-in-out;
+          animation: slide-right 0.1s ease-in-out;
+}
+
+.container .window .main .main-content .message-list .message .message-bubble .message-bubble-options > .indicator::before {
+  opacity: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='ionicon' width='16' color='%234a4a4a' viewBox='0 0 512 512'%3E%3Ctitle%3EChevron Down%3C/title%3E%3Cpath fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='48' d='M112 184l144 144 144-144'/%3E%3C/svg%3E");
+}
+
 .container .window .main .main-content .message-list .message.send {
   -webkit-box-align: end;
       -ms-flex-align: end;
@@ -637,6 +682,10 @@ body {
 }
 
 .container .window .main .main-content .message-list .message.send > .message-bubble {
+  background-color: #dcf8c6;
+}
+
+.container .window .main .main-content .message-list .message.send > .message-bubble > .message-bubble-options > .indicator {
   background-color: #dcf8c6;
 }
 
@@ -711,4 +760,26 @@ body {
 
 .container .window .main .main-footer .input > * {
   margin: 0.5rem;
+}
+
+@-webkit-keyframes slide-right {
+  from {
+    right: -1rem;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes slide-right {
+  from {
+    right: -1rem;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
 }
