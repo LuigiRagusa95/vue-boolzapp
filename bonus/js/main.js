@@ -186,6 +186,7 @@ new Vue({
 		},
 		selectOption(index, actualTargetIndex) {
 			index == 1 ? this.deleteMessage(actualTargetIndex) : this.showMessageInfo(actualTargetIndex);
+			this.isShowContextMenu = false;
 		},
 	},
 });
